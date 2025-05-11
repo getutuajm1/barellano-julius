@@ -28,7 +28,7 @@ GitHub Pages: Deployed at https://getutuajm1.github.io/portfolio
 
 
 
-Vercel: Deployed at https://getutuajm1.vercel.app
+Vercel: Deployed at https://barellano.vercel.app
 
 Setup
 

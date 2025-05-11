@@ -9,6 +9,7 @@ body {
     background: linear-gradient(180deg, #f0f4f8, #e2e8f0);
     color: #1f2937;
     line-height: 1.6;
+    padding-top: 80px; /* Offset for fixed navbar */
 }
 
 .navbar {
@@ -32,12 +33,14 @@ body {
 .navbar a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem; /* Increased padding for touch */
     font-weight: 500;
     transition: background 0.3s;
+    display: block; /* Ensure full touch area */
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a:focus {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 0.25rem;
 }
@@ -76,9 +79,11 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -124,7 +129,7 @@ body {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -139,6 +144,11 @@ body {
 .card:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card a {
+    padding: 0.5rem; /* Increased touch area */
+    display: inline-block;
 }
 
 .skills-grid {
@@ -166,6 +176,7 @@ body {
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -174,10 +185,13 @@ body {
     color: #4b5563;
     text-decoration: none;
     font-size: 1rem;
+    padding: 0.5rem; /* Increased touch area */
     transition: color 0.3s;
+    display: inline-block;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
     color: #3b82f6;
 }
 
@@ -190,6 +204,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 120px; /* Increased offset for stacked nav */
+    }
+
     .nav-links {
         flex-direction: column;
         align-items: center;
@@ -197,9 +215,10 @@ footer {
     }
 
     .nav-links a {
-        padding: 0.5rem;
+        padding: 0.75rem;
         width: 100%;
         text-align: center;
+        font-size: 1.1rem; /* Slightly larger for readability */
     }
 
     .hero {
@@ -210,7 +229,69 @@ footer {
         font-size: 2rem;
     }
 
+    .hero p {
+        font-size: 1rem;
+    }
+
     .container {
         margin: 1rem auto;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 0.95rem; /* Slightly smaller base font */
+    }
+
+    .hero {
+        padding: 3rem 0.5rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        max-width: 90%;
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+
+    .card {
+        padding: 0.75rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .contact-card {
+        padding: 1rem;
+    }
+
+    .social-links a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
     }
 }
